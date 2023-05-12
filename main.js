@@ -244,7 +244,14 @@ async function main() {
     handleBuy(db);
     handleFilter()
     
-   
+    // window.addEventListener("load", function() {
+    //     setTimeout(function() {
+    //         const loadHTML = document.querySelector(".load");
+    //         console.log(loadHTML)
+    //     }, 3000)
+        
+    // })
+
 }
 
 main();
