@@ -25,20 +25,20 @@ function printProducts(db) {
         html += `
             <div class="product ${category}">
                 <div class="product__img">
-                    <img src="${image}" 
+                    <img src="${image}"
                     alt="${name}">
                 </div>
                 <div class="product__body">
-                     
+
                         <h3>
-                            $${price}.00 
-                            <span class=" product__body--${quantity ? "" : "soldOut "}"> 
-                                ${quantity ? "stock:" : "" }  ${quantity ? quantity : "sold Out" } 
-                            </span> 
+                            $${price}.00
+                            <span class=" product__body--${quantity ? "" : "soldOut "}">
+                                ${quantity ? "stock:" : "" }  ${quantity ? quantity : "sold Out" }
+                            </span>
                         </h3>
-                    
+
                     ${
-                        quantity 
+                        quantity
                             ? `<i class='bx bx-plus' id="${id}"></i>`
                             : "<div></div>"
                     }
@@ -71,18 +71,18 @@ function printProductsCart(db) {
                      </div>
 
                      <div class="cartItem__body">
-                         <h4>${item.name}</h4> 
+                         <h4>${item.name}</h4>
                          <p>stock: ${item.quantity} | <span>$${item.price}.00</span> </p>
                          <span>Subtotal:$${item.price * item.amount}.00</span>
 
                          <div class="cartItem__options" data-id="${item.id}">
                              <i class="bx bx-minus"></i>
-                             <p>${item.amount} unit</p>  
+                             <p>${item.amount} unit</p>
                              <i class="bx bx-plus"></i>
-                             <i class="bx bx-trash"></i>   
-                        </div> 
+                             <i class="bx bx-trash"></i>
+                        </div>
                      </div>
-                         
+
               </div>
          `;
     });
@@ -142,7 +142,7 @@ function printTotal(db) {
     </p>
     `;
 
-    
+
 
     cartTotalInfoHTML.innerHTML = html;
     amountItemsHTML.textContent = amountProducts;
@@ -189,7 +189,7 @@ function handleBuy(db) {
     document.querySelector("#btn__buy").addEventListener("click", function() {
         if (!Object.values(db.cart).length)
             return alert("Debe de tener un producto para realizar la compra");
-             
+
             const newProducts =[];
 
             for (const product of db.products) {
@@ -201,7 +201,7 @@ function handleBuy(db) {
                       quantity: product.quantity - productCart.amount
                    });
                 } else {
-                    newProducts.push( product); 
+                    newProducts.push( product);
                 }
             }
             db.products = newProducts;
@@ -243,18 +243,9 @@ async function main() {
     printTotal(db);
     handleBuy(db);
     handleFilter()
-    
-    // window.addEventListener("load", function() {
-    //     setTimeout(function() {
-    //         const loadHTML = document.querySelector(".load");
-    //         console.log(loadHTML)
-    //     }, 3000)
-        
-    // })
 
 }
 
-main();
-// window.addEventListener("load", function () {
-//     main();
-// })
+ window.addEventListener("load", function () {
+     main();
+ })

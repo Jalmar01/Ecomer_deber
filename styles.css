@@ -537,6 +537,10 @@ footer >p >b >a {
         justify-content: flex-start;
     }
 
+    .handleIconNavbar {
+        display: none;
+    }
+
     .home {
         flex-direction: row-reverse;
         min-height: 80vh;
@@ -558,7 +562,7 @@ footer >p >b >a {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
-    .contentCart {
+    .cart {
         width: 400px;
     }
 
